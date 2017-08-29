@@ -1,11 +1,12 @@
-/*
-    Class to check whether a string can be parsed 
-    to another type of variable. First created this
-    class to help with a university assignment, then
-    decided to keep it for further use as it has
-    made my life easier. Feel free to take this and
-    add whatever to it.
-*/
+/**
+ *  @author Echoverum
+ *  Class to check whether a string can be parsed 
+ *  to another type of variable. First created this
+ *  class to help with a university assignment, then
+ *  decided to keep it for further use as it has
+ *  made my life easier. Feel free to take this and
+ *  add whatever to it.
+ */
 
 
 
@@ -16,7 +17,7 @@ import java.text.SimpleDateFormat;
 
  abstract class CheckString {
     
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");   // gives the format of a date
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");   // gives the format of a date
     
     
     
@@ -105,12 +106,15 @@ import java.text.SimpleDateFormat;
     
     
     static boolean isDate(String s) {
-        dateFormat.parse(s);    // parses the given string to a date using the format specified above
-        return true;    // if the string matches the specified format, returns true
+        try {
+            dateFormat.parse(s);    // parses the given string to a date using the format specified above
+            return true;    // if the string matches the specified format, returns true
         
-    } catch(ParseException e) {
-        return false;   // if the string does not match the specified format, returns false
+        } catch(ParseException e) {
+            return false;   // if the string does not match the specified format, returns false
         
+        }
     }
     
+
 }   // end CheckString
